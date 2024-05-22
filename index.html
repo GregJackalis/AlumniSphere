@@ -9,11 +9,13 @@
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="Front_End/style.css">
 </head>
 
 <body>
+
     <div class="wrapper">
         <aside id="sidebar">
             <div class="d-flex">
@@ -111,12 +113,13 @@
         </aside>
 
 
-        <div class="container py-5">
+        <div class="container py-5" id="card-container">
             <h1 class="text-center">Find your Alumnis</h1>
+            
     
-            <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
+            <!-- <div class="row row-cols-1 row-cols-md-3 g-4 py-5" id="card-area">
     
-                <!-- PERSON 1 -->
+                <!-- PERSON 1 
                 <div class="col">
                     <div class="card">
                         <img src="./Front_End/images/person1.jpeg" class="card-img-top" alt="Profile Picture">
@@ -130,130 +133,14 @@
                     </div>
                 </div>
     
-                <!-- PERSON 2 -->
-                <div class="col">
-                    <div class="card">
-                        <img src="./Front_End/images/person2.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Athanasopoloulos Vasilis</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                             consequat.</p>
-                        </div>
-    
-                        <div class="d-flex justify-content-end pe-3 pb-3">
-                            <button class="btn btn-primary">See CV</button>
-                        </div>
-                      </div>
-                </div>
-                
-                <!-- PERSON 3 -->
-                <div class="col">
-                    <div class="card">
-                        <img src="./Front_End/images/person3.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Roulias Konstantinos</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                             consequat.</p>
-                        </div>
-    
-                        <div class="d-flex justify-content-end pe-3 pb-3">
-                            <button class="btn btn-primary">See CV</button>
-                        </div>
-                      </div>
-                </div>
-                
-                <!-- PERSON 4 -->
-                <div class="col">
-                    <div class="card">
-                        <img src="./Front_End/images/person4.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Palaiologou Avgerini</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                             consequat.</p>
-                        </div>
-    
-                        <div class="d-flex justify-content-end pe-3 pb-3">
-                            <button class="btn btn-primary">See CV</button>
-                        </div>
-                      </div>
-                </div>
-                
-                <!-- PERSON 5 -->
-                <div class="col">
-                    <div class="card">
-                        <img src="./Front_End/images/person5.avif" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Cheiletzaris Fanis</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                             consequat.</p>
-                        </div>
-    
-                        <div class="d-flex justify-content-end pe-3 pb-3">
-                            <button class="btn btn-primary">See CV</button>
-                        </div>
-                      </div>
-                </div>
-                
-                <!-- PERSON 6 -->
-                <div class="col">
-                    <div class="card">
-                        <img src="./Front_End/images/person6.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Fogkou Anastasia</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                             consequat.</p>
-                        </div>
-    
-                        <div class="d-flex justify-content-end pe-3 pb-3">
-                            <button class="btn btn-primary">See CV</button>
-                        </div>
-                      </div>
-                </div>
-                
-                <!-- OTHER -->
-                <div class="col">
-                    <div class="card">
-                        <img src="./Front_End/images/person1.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Papadopoulou Athina</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                             consequat.</p>
-                        </div>
-
-    
-                        <div class="d-flex justify-content-end pe-3 pb-3">
-                            <button class="btn btn-primary">See CV</button>
-                        </div>
-                      </div>
-                </div><div class="col">
-                    <div class="card">
-                        <img src="./Front_End/images/person1.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Papadopoulou Athina</h5>
-                          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                             consequat.</p>
-                        </div>
-    
-                        <div class="d-flex justify-content-end pe-3 pb-3">
-                            <button class="btn btn-primary">See CV</button>
-                        </div>
-                      </div>
-                </div>
-    
-            </div>
+            </div> -->
         </div>
     </div>
 
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script src="Front_End/script.js"></script>
+    <script src="./Front_End/getData.js"></script>
 </body>
 
 </html>
