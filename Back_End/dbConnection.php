@@ -19,8 +19,11 @@ function getDB() {
 }
 
 function getAll($dbObj) {
-    $sql = "SELECT * FROM users";
-            
+    $sql = "
+    SELECT u.*, s.type AS school
+    FROM users u
+    JOIN schools s ON u.school_id = s.school_id
+    ";            
     $stmt = $dbObj->prepare($sql);
     
     $stmt->execute();
