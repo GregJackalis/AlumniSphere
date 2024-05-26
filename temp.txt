@@ -1,0 +1,101 @@
+function createCard(person) {
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('col');
+
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    const img = document.createElement('img');
+    img.classList.add('card-img-top');
+    img.alt = 'Profile Picture';
+
+    async function getProfilePicture(location) {
+        try {
+            const response = await fetch(location);
+            if (response.ok) {
+                // Profile picture location exists, return it
+                return location;
+            } else {
+                return './Front_End/images/default.png'; // Fallback/default image URL
+            }
+        } catch (error) {
+            // console.error('Error checking image location:', error);
+            return './Front_End/images/default.png'; // Fallback/default image URL in case of error
+        }
+    }
+
+    const profilePicture = getProfilePicture(person.photo);
+    img.src = profilePicture;
+
+    // // Event listener for the 'onerror' event
+    // img.onerror = function(event) {
+    //     event.preventDefault(); // Prevent the default behavior (logging the error)
+    //     img.src = './Front_End/images/default.png'; // Fallback/default image URL
+    // };
+
+    // // Set the src attribute after setting up the onerror handler
+    // img.src = person.photo; // Assuming person.photo contains the URL of the image
+
+
+    const cardBody = document.createElement('div');
+    cardBody.classList.add('card-body');
+
+    const title = document.createElement('h5');
+    title.classList.add('card-title');
+    title.textContent = person.name + ' ' + person.surname;
+
+    const school = document.createElement('p');
+    school.classList.add('card-title');
+    school.textContent = `School of ${person.school}`;
+
+    // FOR EMAIL: `Email: ${person.email}\n
+
+    const about = document.createElement('p');
+    about.classList.add('card-text');
+    // about.style.marginTop = '-50px';
+    about.textContent = person.about;
+    
+
+    const buttonDiv = document.createElement('div');
+    buttonDiv.classList.add('d-flex', 'justify-content-end', 'pe-3', 'pb-3');
+
+    const button = document.createElement('button');
+    button.classList.add('btn', 'btn-primary');
+
+    button.id = `cvBtn_${person.email}`; // Assuming each person has a unique ID
+
+    button.textContent = 'See CV';
+
+    button.addEventListener('click', async function(event) {
+        event.preventDefault(); // Prevent the default behavior (i.e., redirection)
+    
+        // Get the person's PDF location
+        const pdfLocation = person.pdf;
+        
+        // Check if the PDF location exists
+        try {
+            const response = await fetch(pdfLocation);
+            if (response.ok) {
+                // PDF location exists, open it in a new tab
+                window.open(pdfLocation, '_blank');
+            } else {
+                console.log('CV not available');
+                alert(`CV of user ${person.name} ${person.surname} could not be retrieved`);
+
+            }
+        } catch (error) {
+            console.error('Error checking PDF location:', error);
+        }
+    });
+
+    buttonDiv.appendChild(button);
+    cardBody.appendChild(title);
+    cardBody.appendChild(school);
+    cardBody.appendChild(about);
+    card.appendChild(img);
+    card.appendChild(cardBody);
+    card.appendChild(buttonDiv);
+    cardDiv.appendChild(card);
+
+    return cardDiv;
+}

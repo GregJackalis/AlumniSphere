@@ -44,12 +44,14 @@ function createCard(person) {
 
     const img = document.createElement('img');
     img.classList.add('card-img-top');
+    img.src = person.photo; // Default image URL
+
+    // img.src = './Front_End/images/person1.jpeg'; // Default image URL
     img.alt = 'Profile Picture';
 
     // Event listener for the 'onerror' event
-    img.onerror = function(event) {
-        event.preventDefault(); // Prevent the default behavior (logging the error)
-        img.src = './Front_End/images/default.png'; // Fallback/default image URL
+    img.onerror = function() {
+        img.src = './Front_End/images/default.png'; // Backup image URL
     };
 
     // Set the src attribute after setting up the onerror handler
@@ -64,16 +66,16 @@ function createCard(person) {
     title.classList.add('card-title');
     title.textContent = person.name + ' ' + person.surname;
 
-    const school = document.createElement('p');
+    const school = document.createElement('h5');
     school.classList.add('card-title');
-    school.textContent = `School of ${person.school}`;
+    school.textContent = `School: ${person.school}`;
 
     // FOR EMAIL: `Email: ${person.email}\n
 
     const about = document.createElement('p');
     about.classList.add('card-text');
     // about.style.marginTop = '-50px';
-    about.textContent = person.about;
+    about.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
     
 
     const buttonDiv = document.createElement('div');
