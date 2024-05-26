@@ -1,3 +1,5 @@
+let backRes = [];
+
 async function getData(reqType) {
     try {
         const response = await fetch('Back_End/index.php', {
@@ -15,12 +17,12 @@ async function getData(reqType) {
         }
 
         const text = await response.text(); // Get raw response text
-        //console.log('Raw response:', text);
+        console.log('Raw response:', text);
 
         
         let parsedResponse = JSON.parse(text);
-        let backRes = parsedResponse.message;
-        //console.log(backRes);
+        backRes = parsedResponse.message;
+        console.log(backRes);
 
         createCards(backRes);
 
@@ -34,7 +36,6 @@ window.onload = function() {
  };
  
 
-
 function createCard(person) {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('col');
@@ -44,20 +45,16 @@ function createCard(person) {
 
     const img = document.createElement('img');
     img.classList.add('card-img-top');
-    img.src = person.photo; // Default image URL
-
-    // img.src = './Front_End/images/person1.jpeg'; // Default image URL
     img.alt = 'Profile Picture';
 
     // Event listener for the 'onerror' event
-    img.onerror = function() {
-        img.src = './Front_End/images/default.png'; // Backup image URL
+    img.onerror = function(event) {
+        event.preventDefault(); // Prevent the default behavior (logging the error)
+        img.src = './Front_End/images/default.png'; // Fallback/default image URL
     };
 
     // Set the src attribute after setting up the onerror handler
-    img.src = "./Front_End/" + person.photo; // Assuming person.photo contains the URL of the image
-    
-    console.log("./Front_End/" + person.photo);
+    img.src = "./Front_End/"+person.photo; // Assuming person.photo contains the URL of the image
 
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
@@ -66,17 +63,13 @@ function createCard(person) {
     title.classList.add('card-title');
     title.textContent = person.name + ' ' + person.surname;
 
-    const school = document.createElement('h5');
+    const school = document.createElement('p');
     school.classList.add('card-title');
-    school.textContent = `School: ${person.school}`;
-
-    // FOR EMAIL: `Email: ${person.email}\n
+    school.textContent = `School of ${person.school}`;
 
     const about = document.createElement('p');
     about.classList.add('card-text');
-    // about.style.marginTop = '-50px';
-    about.textContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-    
+    about.textContent = person.about;
 
     const buttonDiv = document.createElement('div');
     buttonDiv.classList.add('d-flex', 'justify-content-end', 'pe-3', 'pb-3');
@@ -84,12 +77,22 @@ function createCard(person) {
     const button = document.createElement('button');
     button.classList.add('btn', 'btn-primary');
     button.textContent = 'See CV';
-    button.addEventListener('click', function() {
-        // console.log(person.pdf);
-        if ("./Front_End/"+person.pdf) {
-            window.open("./Front_End/"+person.pdf, '_blank');
-        } else {
-            console.log('CV not available');
+
+    button.addEventListener('click', async function(event) {
+        event.preventDefault();
+
+        const pdfLocation = "./Front_End/"+person.pdf;
+
+        try {
+            const response = await fetch(pdfLocation);
+            if (response.ok) {
+                window.open(pdfLocation, '_blank');
+            } else {
+                console.log('CV not available');
+                alert(`CV of user ${person.name} ${person.surname} could not be retrieved`);
+            }
+        } catch (error) {
+            console.error('Error checking PDF location:', error);
         }
     });
 
@@ -105,13 +108,12 @@ function createCard(person) {
     return cardDiv;
 }
 
-
 // Function to create cards for each person in backRes
-function createCards(backRes) {
+function createCards(data) {
     const cardArea = document.createElement('div');
     cardArea.classList.add('row', 'row-cols-1', 'row-cols-md-3', 'g-4', 'py-5');
 
-    backRes.forEach(person => {
+    data.forEach(person => {
         const card = createCard(person);
         cardArea.appendChild(card);
     });
@@ -119,4 +121,86 @@ function createCards(backRes) {
     // Append the container to the document body or any other desired parent element
     const container = document.getElementById('card-container');
     container.appendChild(cardArea);
+
 }
+
+const artsBtn = document.querySelector('#artsBtn');
+
+artsBtn.addEventListener('click', function () {
+    filtering('Arts and Design');
+});
+
+const businessBtn = document.querySelector('#businessBtn');
+
+businessBtn.addEventListener('click', function () {
+    filtering('Business');
+});
+
+const computingBtn = document.querySelector('#computingBtn');
+
+computingBtn.addEventListener('click', function () {
+    filtering('Computing');
+});
+
+const educationBtn = document.querySelector('#educationBtn');
+
+educationBtn.addEventListener('click', function () {
+    filtering('Education');
+});
+
+const engineeringBtn = document.querySelector('#engineeringBtn');
+
+engineeringBtn.addEventListener('click', function () {
+    filtering('Engineering');
+});
+
+const healthSportBtn = document.querySelector('#healthSportBtn');
+
+healthSportBtn.addEventListener('click', function () {
+    filtering('Health and Sport Sciences');
+});
+
+const psychologyBtn = document.querySelector('#psychologyBtn');
+
+psychologyBtn.addEventListener('click', function () {
+    filtering('Psychology');
+});
+
+const shippingBtn = document.querySelector('#shippingBtn');
+
+shippingBtn.addEventListener('click', function () {
+    filtering('Shipping');
+});
+
+const tourismBtn = document.querySelector('#tourismBtn');
+
+tourismBtn.addEventListener('click', function () {
+    filtering('Tourism and Hospitality');
+});
+
+const showAllBtn = document.querySelector('#showAllBtn');
+
+showAllBtn.addEventListener('click', function () {
+    filtering('showAll');
+});
+
+function filtering(typeOfBtn) {
+    let filteredData = [];
+    console.log(typeOfBtn);
+    if (typeOfBtn === "showAll") {
+        filteredData = backRes;
+    } else {
+        filteredData = backRes.filter(person => {
+            return person.school === typeOfBtn; // Filter persons whose school matches the selected type
+        });
+    }
+
+    // Remove existing cards from the container
+    const container = document.getElementById('card-container');
+    container.innerHTML = '';
+
+    // Create and append new cards for the filtered data
+    createCards(filteredData);
+}
+
+// }

@@ -82,8 +82,18 @@
 
             // echo "console.log(" . $row['pdf'] . ")";
     
+            if (file_exists($row['pdf'])) {
+                // If the file exists, display the button
+                echo "<a href='#' onclick=\"window.open('" . $row['pdf'] . "', '_blank');\" class='btn btn-primary'>See CV</a>";
+            } else {
+                // If the file doesn't exist, display an alert
+                // echo "<script>alert('File does not exist');</script>";
+                echo "<a class='btn btn-primary'>No CV was Found</a>";
+
+            }
+
             // See CV button
-            echo "<a href='#' onclick=\"window.open('" . $row['pdf'] . "', '_blank');\" class='btn btn-primary'>See CV</a>";            
+            // echo "<a href='#' onclick=\"window.open('" . $row['pdf'] . "', '_blank');\" class='btn btn-primary'>See CV</a>";            
             // Delete button
             echo "<form action='delete.php' method='POST'>";
             echo "<input type='hidden' name='student_id' value='" . $row['id'] . "'>";
