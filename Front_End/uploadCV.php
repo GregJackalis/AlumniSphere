@@ -16,7 +16,7 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="../Front_End/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -109,7 +109,7 @@ session_start();
         <div class="create-form w-100 mx-auto" style="max-width: 500px; height:910px; padding-top:80px;">
             <h1 class="text-center p-4">Upload your CV</h1>
 
-            <form action="../Back_End/processCV.php?id=<?php echo $_SESSION["id"]; ?>" method="post" enctype="multipart/form-data">
+            <form action="processCV.php?id=<?php echo $_SESSION["id"]; ?>" method="post" enctype="multipart/form-data">
                 <div class="text-center mb-4">
                     <img id="profilePicture" src="./images/default.png" alt="Profile Picture" class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
                 </div>

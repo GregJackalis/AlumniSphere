@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+
+/* Colors */
+:root {
+    --primary-color: #3b7ddd;
+    --secondary-color: #751111;
+    --dark-color: #0e2238;
+    --light-color: #f8f9fa; /* Light background color for contrast */
+}
+
+
+/* displaySchool.css */
+
+/* Header styles */
+.header {
+    width: 100%;
+    background-color: #751111;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #0e2238;
+    position: fixed;
+    z-index: 9999;
+}
+
+.logo {
+    font-size: 1.5rem;
+}
+
+.inspect-btn {
+    background-color: #751111;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* General Body Styling */
+body {
+    background-color: gray !important;
+    color: var(--dark-color) !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Container */
+
+
+/* Card Styling */
+.card {
+    background-color: #fafbfe !important;
+    color: rgb(40, 19, 132) !important;
+    border: none !important;
+    border-radius: 10px !important;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    height: 100%;
+}
+
+.card-title {
+    font-weight: bold !important;
+}
+
+.card-text {
+    font-size: 1rem !important;
+}
+
+/* Card Body */
+.card-body {
+    padding: 20px !important;
+}
+
+/* Button Styling */
+.btn-primary{
+    background-color: #3b7ddd;
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-color) !important;
+    border-color: var(--dark-color) !important;
+}
+
+/* Header Styling */
+h1 {
+    color: var(--dark-color) !important;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-top: 6vh;
+}
+
+.inspect-btn {
+    margin: 5px; /* Add some margin for spacing */
+}
+
+

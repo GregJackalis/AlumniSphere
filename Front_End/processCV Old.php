@@ -9,14 +9,14 @@ error_reporting(E_ALL);
 // Check if user is logged in
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     // Redirect user to login page
-    header("location: ../Front_End/login.php");
+    header("location: login.php");
     exit;
 }
 
 // Check if user ID is provided in the URL
 if (!isset($_GET["id"])) {
     // Redirect user to login page if user ID is not provided
-    header("location: ../Front_End/login.php");
+    header("location: login.php");
     exit;
 }
 
@@ -24,10 +24,10 @@ $userId = $_GET["id"];
 
 if(isset($_POST['create'])){
 
-    require_once("./dbConnection.php");
+    require_once("../Back_End/dbConnection.php");
     $dbObj = getDB(); 
 
-    $target_dir1 = '../Front_end/images/';
+    $target_dir1 = 'images/';
     $fileName1 = basename($_FILES['photo']['name']);
     $targetPath1 = $target_dir1 . $fileName1;
 
@@ -36,7 +36,10 @@ if(isset($_POST['create'])){
     } else{
         if(move_uploaded_file($_FILES["photo"]["tmp_name"], $targetPath1)) {
             // File uploaded successfully
-            //echo "Photo uploaded successfully.<br>";
+            echo '    console.log("Waiting for 5 seconds on the Photo...");';
+            echo '    setTimeout(function() {';
+            echo '        console.log("This is printed after a 5-second delay.");';
+            echo '    }, 5000);'; 
         } else {
             echo "Failed to move uploaded file1.";
         }
@@ -54,7 +57,10 @@ if(isset($_POST['create'])){
     } else{
         if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetPath2)) {
             // File uploaded successfully
-            //echo "CV file uploaded successfully.<br>";
+            echo '    console.log("Waiting for 5 seconds on the CV...");';
+            echo '    setTimeout(function() {';
+            echo '        console.log("This is printed after a 5-second delay.");';
+            echo '    }, 5000);';       
         } else {
             echo "Failed to move uploaded file2.";
         }

@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    background-color: gray !important;
+    color: var(--dark-color) !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+.student-info {
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    width: 350px; /* Adjust width as needed */
+    height: auto; /* Auto height to accommodate variable content */
+    display: inline-block;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.student-photo {
+    width: 150px; /* Fixed width for the image */
+    height: 150px; /* Fixed height for the image */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    display: block;
+}
+
+.student-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.student-detail {
+    margin: 0;
+}
+
+/* Style for horizontal line */
+.hr-line {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.header {
+    width: 100%;
+    background-color: #751111;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #0e2238;
+}
+
+.logo {
+    font-size: 1.5rem;
+}
+
+.button-container {
+    margin-left: auto; /* Push the buttons to the right */
+}
+
+/* Optional: Add spacing between buttons */
+.button-container .btn {
+    margin-left: 10px;
+}
