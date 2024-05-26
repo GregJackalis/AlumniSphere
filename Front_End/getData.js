@@ -15,12 +15,12 @@ async function getData(reqType) {
         }
 
         const text = await response.text(); // Get raw response text
-        console.log('Raw response:', text);
+        //console.log('Raw response:', text);
 
         
         let parsedResponse = JSON.parse(text);
         let backRes = parsedResponse.message;
-        console.log(backRes);
+        //console.log(backRes);
 
         createCards(backRes);
 
@@ -54,6 +54,11 @@ function createCard(person) {
         img.src = './Front_End/images/default.png'; // Backup image URL
     };
 
+    // Set the src attribute after setting up the onerror handler
+    img.src = "./Front_End/" + person.photo; // Assuming person.photo contains the URL of the image
+    
+    console.log("./Front_End/" + person.photo);
+
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
 
@@ -80,8 +85,9 @@ function createCard(person) {
     button.classList.add('btn', 'btn-primary');
     button.textContent = 'See CV';
     button.addEventListener('click', function() {
-        if (person.pdf) {
-            window.open(person.pdf, '_blank');
+        // console.log(person.pdf);
+        if ("./Front_End/"+person.pdf) {
+            window.open("./Front_End/"+person.pdf, '_blank');
         } else {
             console.log('CV not available');
         }
