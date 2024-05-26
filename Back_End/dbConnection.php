@@ -19,11 +19,8 @@ function getDB() {
 }
 
 function getAll($dbObj) {
-    $sql = "
-    SELECT u.*, s.type AS school
-    FROM users u
-    JOIN schools s ON u.school_id = s.school_id
-    ";            
+    $sql = "SELECT * FROM users";
+            
     $stmt = $dbObj->prepare($sql);
     
     $stmt->execute();

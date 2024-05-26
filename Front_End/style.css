@@ -44,8 +44,6 @@ body {
     background-color: #751111;
     display: flex;
     flex-direction: column;
-    position: fixed;
-    height:100vh;
 }
 
 #sidebar.expand {
@@ -120,7 +118,7 @@ a.sidebar-link:hover {
 
 #sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
     display: block;
-    max-height: 28em;
+    max-height: 24em;
     width: 100%;
     opacity: 1;
 }
