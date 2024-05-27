@@ -16,7 +16,8 @@
 <body>
     <div class="header">
         <div class="logo">AlumniSphere-Admin</div>
-        <button class="btn btn-primary inspect-btn">Logout</button>
+        <button class="btn btn-primary inspect-btn" style="margin-left:auto;margin-right:5px;" onclick="window.location.href = './admin.php'">Back</button>
+        <a href="../Back_End/logout.php"><button class="btn btn-primary inspect-btn">Logout</button></a>
     </div>
 
     <?php
