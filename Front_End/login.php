@@ -43,6 +43,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
                     $_SESSION["id"] = $id;
                     $_SESSION["email"] = $email;
 
+                    if ($email == 'admin@gmail.com') {
+                        header("Location: ./admin.php");
+                        exit();
+                    }
+
                     // Redirect to welcome page or dashboard
                   // header("Location: ./uploadCV.php?id=$id");
                     header("Location: ./uploadCV.php");
@@ -100,32 +105,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="../index.php" class="sidebar-link">
                         <i class="lni lni-user"></i>
-                        <span>Profile</span>
-                    </a>
-                </li>
-                <!-- <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
-                        <i class="lni lni-agenda"></i>
-                        <span>Task</span>
-                    </a>
-                </li> -->
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                        <i class="lni lni-protection"></i>
-                        <span>Auth</span>
-                    </a>
-                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="register.php" class="sidebar-link">Register</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-item">
-                    <a href="../index.html" class="sidebar-link">
-                        <i class="lni lni-popup"></i>
-                        <span>Back to Home Page</span>
+                        <span>Home Page</span>
                     </a>
                 </li>
             </ul>

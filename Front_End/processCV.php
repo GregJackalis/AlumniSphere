@@ -78,7 +78,7 @@ if (isset($_POST['create'])) {
     ));
 
     if ($stmt !== false) {
-        header('location: ../index.html');
+        header('location: ../index.php');
         exit;
     } else {
         echo "Error updating data.<br>";

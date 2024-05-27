@@ -10,6 +10,6 @@ session_destroy();
  
 // Redirect to login page
 //header("location: ../Front_End/getData.js");
-header("location: ../index.html");
+header("location: ../index.php");
 exit;
 ?>

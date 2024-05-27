@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +17,7 @@
 
     <div class="header">
         <div class="logo">AlumniSphere-Admin</div>
-        <button class="btn btn-primary inspect-btn">Logout</button>
+        <a href="../Back_End/logout.php"><button class="btn btn-primary inspect-btn">Logout</button></a>
     </div>
     
     <?php

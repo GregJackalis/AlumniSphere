@@ -203,3 +203,11 @@ body {
 .card h5 {
     color: rgb(40, 19, 132) !important;
 }
+
+.displayBtn {
+    display: none;
+}
+
+/* .btn-primary {
+    display: none;
+} */
