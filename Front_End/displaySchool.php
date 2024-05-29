@@ -49,7 +49,7 @@
         // Get the base URL to prepend to the image paths
         // $base_url = rtrim(dirname($_SERVER['PHP_SELF']), '/') . '/';
         // $base_url = str_replace('/Front_End/', '/', $base_url);
-
+        $base_url = "";
         
         // Display student information
         while ($row = $result->fetch_assoc()) {
